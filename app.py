@@ -45,5 +45,5 @@ def main():
 
 
 app.run(
-    # host=os.getenv("IP", "0.0.0.0"), port=os.getenv("PORT", 5000), debug=False #uncomment when sending to heroku
+    host=os.getenv("IP", "0.0.0.0"), port=os.getenv("PORT", 5000), debug=False #uncomment when sending to heroku
 )
