@@ -17,6 +17,7 @@ api_token_url = "https://accounts.spotify.com/api/token"
 
 def artistsongs(artid):
     Art_song_url = f"{GetReqURL}/artists/{artid}/top-tracks"
+    country = {"US"}
 
     head = {
         "Authorization": f"Bearer {authorize()}",
@@ -24,10 +25,10 @@ def artistsongs(artid):
         "Content-Type": "application/json",
     }
 
-    songs = requests.get(Art_song_url, headers=head)
+    songs = requests.get(Art_song_url, params=country, headers=head)
     songinfo = songs.json()
-    songlist = songinfo["tracks"]
-    print(songlist)
+    # songlist = songinfo["tracks"]
+    print(songinfo)
 
 
 def authorize():
@@ -45,3 +46,6 @@ def authorize():
     token = reqkey.get("access_token")
     # print(token)
     return f"{token}"
+
+
+artistsongs("3TVXtAsR1Inumwj472S9r4")
