@@ -11,7 +11,7 @@ from dotenv import find_dotenv, load_dotenv
 
 load_dotenv(find_dotenv())
 geniusapi = "http://api.genius.com"
-songname = "Sing About Me Im Dying Of Thirst"
+# songname = "Sing About Me Im Dying Of Thirst"
 
 
 def songlyrics(songname):
@@ -27,6 +27,7 @@ def songlyrics(songname):
     result_info = result.json()
     firsturl = result_info["response"]["hits"][0]["result"]["url"]
     # print(firsturl)
+    return f"{firsturl}"
 
 
-songlyrics(songname)
+# songlyrics(songname)
