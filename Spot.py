@@ -17,7 +17,7 @@ api_token_url = "https://accounts.spotify.com/api/token"
 
 def artistsongs(artid):
     Art_song_url = f"{GetReqURL}/artists/{artid}/top-tracks"
-    country = {"US"}
+    country = {"country": "US"}
 
     head = {
         "Authorization": f"Bearer {authorize()}",
