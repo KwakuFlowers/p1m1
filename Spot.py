@@ -27,8 +27,31 @@ def artistsongs(artid):
     randomsong = random.randint(1, 10)
     songs = requests.get(Art_song_url, params=country, headers=head)
     songinfo = songs.json()
-    songlist = songinfo["tracks"][randomsong]["name"]
-    print(songlist)
+    # track genreal info search
+    randsonginfo = songinfo["tracks"][randomsong]
+    print(randsonginfo)
+    print(
+        "-----------------------------------------------------------------------------------"
+    )
+    # track name
+    randsonginfo_name = randsonginfo["name"]
+    print(randsonginfo_name)
+    print(
+        "-----------------------------------------------------------------------------------"
+    )
+    # track release date
+    randsonginfo_releasedate = randsonginfo["album"]["release_date"]
+    print(randsonginfo_releasedate)
+    print(
+        "-----------------------------------------------------------------------------------"
+    )
+    # Track popularity (out of 100)
+    randsonginfo_popularity = randsonginfo["popularity"]
+    print(randsonginfo_popularity)
+    print(
+        "-----------------------------------------------------------------------------------"
+    )
+    # randsonginfo_album = randsonginfo["name"]
 
 
 def authorize():
