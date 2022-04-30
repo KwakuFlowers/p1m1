@@ -51,7 +51,22 @@ def artistsongs(artid):
     print(
         "-----------------------------------------------------------------------------------"
     )
-    # randsonginfo_album = randsonginfo["name"]
+    # url to artist
+    randsonginfo_extern = randsonginfo["external_urls"]["spotify"]
+    print(randsonginfo_extern)
+    print(
+        "-----------------------------------------------------------------------------------"
+    )
+    # image grab
+    randsonginfo_imageurl = randsonginfo["album"]["images"][0]["url"]
+    randsonginfo_imageH = randsonginfo["album"]["images"][0]["height"]
+    randsonginfo_imageW = randsonginfo["album"]["images"][0]["width"]
+    print(randsonginfo_imageurl)
+    print(randsonginfo_imageH)
+    print(randsonginfo_imageW)
+    print(
+        "-----------------------------------------------------------------------------------"
+    )
 
 
 def authorize():
