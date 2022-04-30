@@ -24,11 +24,11 @@ def artistsongs(artid):
         "Accept": "application/json",
         "Content-Type": "application/json",
     }
-
+    randomsong = random.randint(1, 10)
     songs = requests.get(Art_song_url, params=country, headers=head)
     songinfo = songs.json()
-    # songlist = songinfo["tracks"]
-    print(songinfo)
+    songlist = songinfo["tracks"][randomsong]["name"]
+    print(songlist)
 
 
 def authorize():
