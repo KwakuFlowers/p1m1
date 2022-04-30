@@ -24,7 +24,7 @@ def artistsongs(artid):
         "Accept": "application/json",
         "Content-Type": "application/json",
     }
-    randomsong = random.randint(1, 10)
+    randomsong = random.randint(0, 9)
     songs = requests.get(Art_song_url, params=country, headers=head)
     songinfo = songs.json()
     # track genreal info search
