@@ -26,7 +26,7 @@ def songlyrics(songname):
     result = requests.get(song_lyrics_results, headers=head)
     result_info = result.json()
     firsturl = result_info["response"]["hits"][0]["result"]["url"]
-    print(firsturl)
+    # print(firsturl)
 
 
 songlyrics(songname)
