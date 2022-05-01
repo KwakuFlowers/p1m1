@@ -24,34 +24,58 @@ def artistsongs(artid):
         "Accept": "application/json",
         "Content-Type": "application/json",
     }
-    randomsong = random.randint(1, 10)
+    randomsong = random.randint(0, 9)
     songs = requests.get(Art_song_url, params=country, headers=head)
     songinfo = songs.json()
     # track genreal info search
     randsonginfo = songinfo["tracks"][randomsong]
-    print(randsonginfo)
-    print(
-        "-----------------------------------------------------------------------------------"
-    )
+    # print(randsonginfo)
+    # print(
+    #    "-----------------------------------------------------------------------------------"
+    # )
     # track name
     randsonginfo_name = randsonginfo["name"]
-    print(randsonginfo_name)
-    print(
-        "-----------------------------------------------------------------------------------"
-    )
+    # print(randsonginfo_name)
+    # print(
+    #    "-----------------------------------------------------------------------------------"
+    # )
     # track release date
     randsonginfo_releasedate = randsonginfo["album"]["release_date"]
-    print(randsonginfo_releasedate)
-    print(
-        "-----------------------------------------------------------------------------------"
-    )
+    # print(randsonginfo_releasedate)
+    # print(
+    #   "-----------------------------------------------------------------------------------"
+    # )
     # Track popularity (out of 100)
     randsonginfo_popularity = randsonginfo["popularity"]
-    print(randsonginfo_popularity)
-    print(
-        "-----------------------------------------------------------------------------------"
+    # print(randsonginfo_popularity)
+    # print(
+    #    "-----------------------------------------------------------------------------------"
+    # )
+    # url to artist
+    randsonginfo_extern = randsonginfo["external_urls"]["spotify"]
+    # print(randsonginfo_extern)
+    # print(
+    #    "-----------------------------------------------------------------------------------"
+    # )
+    # image grab
+    randsonginfo_imageurl = randsonginfo["album"]["images"][0]["url"]
+    randsonginfo_imageH = randsonginfo["album"]["images"][0]["height"]
+    randsonginfo_imageW = randsonginfo["album"]["images"][0]["width"]
+    # print(randsonginfo_imageurl)
+    # print(randsonginfo_imageH)
+    # print(randsonginfo_imageW)
+    # print(
+    #    "-----------------------------------------------------------------------------------"
+    # )
+    return (
+        randsonginfo_name,
+        randsonginfo_releasedate,
+        randsonginfo_popularity,
+        randsonginfo_extern,
+        randsonginfo_imageurl,
+        randsonginfo_imageH,
+        randsonginfo_imageW,
     )
-    # randsonginfo_album = randsonginfo["name"]
 
 
 def authorize():

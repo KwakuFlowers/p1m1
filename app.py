@@ -1,11 +1,49 @@
 import flask
+import random
+import os
+from Genius import songlyrics
+from Spot import artistsongs
 
-app = flask.flask(__name__)
+app = flask.Flask(__name__)
 
 
 @app.route("/")
 def main():
-    return flask.render_template("main.html")
+    artistid = [
+        "3TVXtAsR1Inumwj472S9r4",  # Drake
+        "5f7VJjfbwm532GiveGC0ZK",  # Lil Baby
+        "6vWDO969PvNqNYHIOW5v0m",  # Beyonce
+        "2hlmm7s2ICUX0LVIhVFlZQ",  # Gunna
+        "6l3HvQ5sa6mXTsMTB19rO5",  # J. cole
+        "2YZyLoL8N0Wb9xBt1NhZWg",  # Kendrick Lamar
+    ]
+    newartisitid = random.choice(artistid)
+    (
+        randsonginfo_name,
+        randsonginfo_releasedate,
+        randsonginfo_popularity,
+        randsonginfo_extern,
+        randsonginfo_imageurl,
+        randsonginfo_imageH,
+        randsonginfo_imageW,
+    ) = artistsongs(newartisitid)
+
+    currsongname = randsonginfo_name
+    geniuslink = songlyrics(currsongname)
+
+    return flask.render_template(
+        "start.html",
+        songname=randsonginfo_name,
+        popularity=randsonginfo_popularity,
+        spotlink=randsonginfo_extern,
+        releasedate=randsonginfo_releasedate,
+        imageurl=randsonginfo_imageurl,
+        imageheight=randsonginfo_imageH,
+        imagewidth=randsonginfo_imageW,
+        genlink=geniuslink,
+    )
 
 
-app.run()
+app.run(
+    host=os.getenv("IP", "0.0.0.0"), port=os.getenv("PORT", 5000), debug=False #uncomment when sending to heroku
+)
