@@ -22,3 +22,5 @@
 # Problems left to be fixed#
 
 1) Searching for the exact song everytime we use the Genius link. The problem is, the Song ID on Spotify is different from the ID in Genius, so there has to be a way to search specifically for the song with out the occassional mis information from showing. 
+
+# heroku link#
